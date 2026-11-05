@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秘密研究所天天向上-研究所日常记录_科学探索与知识分享</title>
+<meta name="description" content="秘密研究所天天向上是一个记录研究所日常、科学探索与知识分享的主题首页。这里汇集研究手记、实验观察、知识问答与团队故事，帮助访问者了解秘密研究所天天向上下正在发生的事，并找到持续阅读与参与探索的入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23122b3a'/%3E%3Ccircle cx='32' cy='26' r='11' fill='none' stroke='%235fd6c0' stroke-width='3'/%3E%3Cpath d='M32 37v14M24 51h16' stroke='%235fd6c0' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='26' r='3.5' fill='%23f2c14e'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#12222e;
+  --ink-soft:#3d5261;
+  --paper:#f6f4ee;
+  --card:#ffffff;
+  --teal:#0f7f74;
+  --teal-soft:#e2f2ef;
+  --gold:#d9a326;
+  --line:#e0ddd2;
+  --radius:16px;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--teal);text-decoration:none;}
+a:hover{text-decoration:underline;}
+img,svg{max-width:100%;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px;}
+
+/* 页头 */
+.site-header{
+  background:rgba(246,244,238,.94);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(8px);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:14px 0;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;color:var(--ink);letter-spacing:.5px;}
+.logo:hover{text-decoration:none;}
+.logo-mark{
+  width:38px;height:38px;flex:0 0 38px;border-radius:11px;
+  background:var(--ink);display:grid;place-items:center;
+}
+nav.main-nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap;}
+nav.main-nav a{color:var(--ink-soft);font-size:.94rem;font-weight:500;}
+nav.main-nav a:hover{color:var(--teal);text-decoration:none;}
+.header-cta{
+  background:var(--teal);color:#fff;padding:9px 18px;border-radius:999px;
+  font-size:.9rem;font-weight:600;white-space:nowrap;
+}
+.header-cta:hover{background:#0b6a61;text-decoration:none;color:#fff;}
+
+/* 首屏 */
+.hero{padding:64px 0 48px;position:relative;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--teal-soft);color:var(--teal);
+  padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:600;
+  letter-spacing:.4px;
+}
+.hero h1{
+  font-size:clamp(1.85rem,4.2vw,2.9rem);
+  line-height:1.32;font-weight:800;
+  margin:18px 0 16px;letter-spacing:.5px;
+}
+.hero-lead{color:var(--ink-soft);font-size:1.03rem;max-width:34em;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:12px;font-weight:600;font-size:.96rem;
+}
+.btn-primary{background:var(--ink);color:#fff;}
+.btn-primary:hover{background:#1c3547;text-decoration:none;color:#fff;}
+.btn-ghost{border:1.5px solid var(--line);color:var(--ink);}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);text-decoration:none;}
+.hero-figure{
+  background:var(--card);border:1px solid var(--line);border-radius:22px;
+  padding:22px;box-shadow:0 18px 40px -28px rgba(18,34,46,.45);
+}
+.hero-figure figcaption{font-size:.82rem;color:var(--ink-soft);margin-top:12px;text-align:center;}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:34px;padding-top:24px;border-top:1px dashed var(--line);}
+.stat b{display:block;font-size:1.5rem;color:var(--teal);font-weight:800;line-height:1.2;}
+.stat span{font-size:.85rem;color:var(--ink-soft);}
+
+/* 通用区块 */
+section{padding:54px 0;}
+.section-head{max-width:40em;margin-bottom:32px;}
+.section-head .kicker{color:var(--gold);font-weight:700;font-size:.85rem;letter-spacing:1.5px;}
+.section-head h2{font-size:clamp(1.35rem,2.6vw,1.75rem);margin:8px 0 10px;font-weight:800;line-height:1.4;}
+.section-head p{color:var(--ink-soft);font-size:.97rem;}
+
+/* 卡片网格 */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;display:flex;flex-direction:column;gap:12px;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 32px -26px rgba(18,34,46,.55);}
+.card-icon{
+  width:44px;height:44px;border-radius:12px;background:var(--teal-soft);
+  display:grid;place-items:center;
+}
+.card h3{font-size:1.06rem;font-weight:700;line-height:1.5;}
+.card p{font-size:.92rem;color:var(--ink-soft);flex:1;}
+.tag{display:inline-block;font-size:.75rem;color:var(--teal);background:var(--teal-soft);padding:3px 10px;border-radius:999px;font-weight:600;}
+
+/* 记录列表 */
+.record-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+.record{
+  display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;
+  padding:22px 4px;border-bottom:1px solid var(--line);
+}
+.record time{font-size:.85rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+.record h3{font-size:1.02rem;font-weight:700;margin-bottom:4px;}
+.record p{font-size:.9rem;color:var(--ink-soft);}
+.record .go{font-size:.88rem;font-weight:600;white-space:nowrap;}
+
+/* 问答 */
+.faq-list{display:flex;flex-direction:column;gap:14px;}
+details{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 22px;
+}
+details[open]{border-color:var(--teal);}
+summary{
+  cursor:pointer;font-weight:700;font-size:.98rem;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";color:var(--teal);font-size:1.2rem;font-weight:700;flex:0 0 auto;}
+details[open] summary::after{content:"–";}
+details p{margin-top:12px;font-size:.92rem;color:var(--ink-soft);}
+
+/* 探索路径 */
+.pathway{
+  background:var(--ink);color:#e8eef2;border-radius:24px;
+  padding:44px 40px;
+}
+.pathway h2{color:#fff;font-size:1.5rem;margin-bottom:10px;font-weight:800;}
+.pathway > p{color:#a9bcc8;font-size:.95rem;max-width:44em;margin-bottom:28px;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px;}
+.step b{display:block;color:var(--gold);font-size:.8rem;letter-spacing:1px;margin-bottom:8px;}
+.step h3{color:#fff;font-size:1rem;margin-bottom:6px;font-weight:700;}
+.step p{color:#a9bcc8;font-size:.88rem;}
+.pathway-actions{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
+.btn-light{background:var(--gold);color:#241a02;}
+.btn-light:hover{background:#e8b53c;text-decoration:none;color:#241a02;}
+.btn-outline-light{border:1.5px solid rgba(255,255,255,.35);color:#fff;}
+.btn-outline-light:hover{border-color:#fff;text-decoration:none;color:#fff;}
+.btn[aria-disabled="true"]{opacity:.85;}
+
+/* 页尾 */
+footer{
+  background:var(--ink);color:#9db1bd;padding:42px 0 30px;margin-top:20px;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.footer-brand{max-width:26em;}
+.footer-brand .logo{color:#fff;margin-bottom:12px;}
+.footer-brand p{font-size:.88rem;line-height:1.8;}
+.footer-links{display:flex;gap:48px;flex-wrap:wrap;}
+.footer-links h4{color:#fff;font-size:.9rem;margin-bottom:12px;font-weight:700;}
+.footer-links ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-links a{color:#9db1bd;font-size:.87rem;}
+.footer-links a:hover{color:#fff;}
+.copyright{
+  margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);
+  font-size:.8rem;color:#7a8f9b;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:32px;}
+  .hero{padding:44px 0 36px;}
+  .grid-3{grid-template-columns:1fr;}
+  .grid-2{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .record{grid-template-columns:1fr;gap:8px;}
+  .record .go{justify-self:start;}
+  .pathway{padding:32px 22px;}
+  nav.main-nav ul{gap:16px;}
+  .header-inner{gap:12px;}
+  section{padding:40px 0;}
+}
+@media (max-width:560px){
+  .hero-stats{gap:22px;}
+  .footer-links{gap:32px;}
+  .header-cta{display:none;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="25" r="11" stroke="#5fd6c0" stroke-width="3.5"/>
+          <path d="M32 36v15M24 51h16" stroke="#5fd6c0" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="32" cy="25" r="3.5" fill="#f2c14e"/>
+        </svg>
+      </span>
+      秘密研究所天天向上
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <ul>
+        <li><a href="#about">关于研究所</a></li>
+        <li><a href="#notes">研究手记</a></li>
+        <li><a href="#topics">探索话题</a></li>
+        <li><a href="#faq">常见问答</a></li>
+        <li><a href="#pathway">参与路径</a></li>
+      </ul>
+    </nav>
+    <a class="header-cta" href="#notes">浏览最新手记</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">研究记录 · 知识分享 · 持续更新</span>
+        <h1>秘密研究所天天向上</h1>
+        <p class="hero-lead">
+          秘密研究所天天向上是一个围绕研究所日常展开的内容首页。这里把实验室里的观察、阅读中的疑问和团队内部的讨论整理成可读的记录，
+          让对科学探索感兴趣的访问者，能够顺着一条清晰的线索了解研究所在做什么、为什么这样做。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#notes">阅读研究手记</a>
+          <a class="btn btn-ghost" href="#about">了解研究所在做什么</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>4</b><span>持续更新的栏目</span></div>
+          <div class="stat"><b>3</b><span>条完整探索路径</span></div>
+          <div class="stat"><b>每周</b><span>整理一次手记</span></div>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <svg viewBox="0 0 400 300" role="img" aria-label="研究所工作台示意图" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="300" rx="16" fill="#eef6f4"/>
+          <rect x="40" y="180" width="320" height="14" rx="7" fill="#cfe3df"/>
+          <rect x="60" y="88" width="86" height="92" rx="8" fill="#ffffff" stroke="#0f7f74" stroke-width="2"/>
+          <path d="M78 148l14-22 12 14 16-26" stroke="#0f7f74" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="218" cy="128" r="34" fill="none" stroke="#12222e" stroke-width="3"/>
+          <circle cx="218" cy="128" r="10" fill="#d9a326"/>
+          <path d="M218 162v18M204 180h28" stroke="#12222e" stroke-width="3" stroke-linecap="round"/>
+          <rect x="286" y="112" width="60" height="68" rx="8" fill="#ffffff" stroke="#12222e" stroke-width="2"/>
+          <path d="M298 132h36M298 146h26M298 160h32" stroke="#0f7f74" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="92" cy="60" r="6" fill="#d9a326"/>
+          <circle cx="330" cy="70" r="4" fill="#0f7f74"/>
+        </svg>
+        <figcaption>工作台上的观察、记录与讨论，构成秘密研究所天天向上的日常</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 关于研究所 -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">关于我们</div>
+        <h2>一个把过程写下来的研究所</h2>
+        <p>秘密研究所天天向上关注的不是结论本身，而是结论是怎么一步步被得到的。我们把可公开的过程整理成栏目，方便读者按兴趣进入。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f7f74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a1 1 0 0 1 1-1h11l4 4v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8 12h8M8 16h5"/></svg>
+          </div>
+          <span class="tag">栏目定位</span>
+          <h3>记录优先</h3>
+          <p>每次实验、每轮阅读都会留下文字痕迹。秘密研究所天天向上把这些痕迹保留下来，让过程可回溯，也让后来者少走弯路。</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f7f74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <span class="tag">更新节奏</span>
+          <h3>按周整理</h3>
+          <p>手记以周为单位汇总，避免碎片化。读者不必每天守着页面，按周回来看一次，就能跟上秘密研究所天天向上的主要进展。</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f7f74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          </div>
+          <span class="tag">面向读者</span>
+          <h3>写给好奇的人</h3>
+          <p>不需要专业背景也能读。秘密研究所天天向上尽量用日常语言解释术语，把讨论的门槛降到愿意花时间阅读的人都能进入。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 研究手记 -->
+  <section id="notes">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">研究手记</div>
+        <h2>近期整理的手记条目</h2>
+        <p>每条手记对应一次具体的观察或讨论，保留当时的判断和后来修正的地方。秘密研究所天天向上的手记不追求完整，只追求可核对。</p>
+      </div>
+      <div class="record-list">
+        <article class="record">
+          <time datetime="2024-11-08">11 月 8 日</time>
+          <div>
+            <h3>一次失败的对照实验，以及它留下的问题</h3>
+            <p>样本量不足让结果无法成立，但记录下的偏差模式，成了下一轮设计的重要参考。</p>
+          </div>
+          <a class="go" href="#topics">查看相关话题 →</a>
+        </article>
+        <article class="record">
+          <time datetime="2024-10-26">10 月 26 日</time>
+          <div>
+            <h3>把一篇论文读三遍之后，我们改掉了原来的假设</h3>
+            <p>同一份材料在不同阶段读出不同含义，秘密研究所天天向上把三次阅读的差异整理成了对照笔记。</p>
+          </div>
+          <a class="go" href="#topics">查看相关话题 →</a>
+        </article>
+        <article class="record">
+          <time datetime="2024-10-12">10 月 12 日</time>
+          <div>
+            <h3>新成员的第一周：从熟悉流程到提出第一个问题</h3>
+            <p>记录新人进入研究所后的适应过程，也让老成员重新审视那些被默认接受的步骤。</p>
+          </div>
+          <a class="go" href="#pathway">了解参与路径 →</a>
+        </article>
+        <article class="record">
+          <time datetime="2024-09-28">9 月 28 日</time>
+          <div>
+            <h3>设备维护日：校准、清洁与一次意外的发现</h3>
+            <p>例行维护中注意到的一个小偏差，后来被证实与读数波动有关，秘密研究所天天向上把它写进了手记。</p>
+          </div>
+          <a class="go" href="#faq">查看常见问答 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 探索话题 -->
+  <section id="topics">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">探索话题</div>
+        <h2>按兴趣进入的四个方向</h2>
+        <p>话题不按学科硬性分类，而是按读者关心的角度组织。秘密研究所天天向上希望每个方向都能独立读完，也能互相串联。</p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <span class="tag">观察</span>
+          <h3>实验与记录方法</h3>
+          <p>如何设计一次能被复核的对照，如何记录异常值，如何在结果不理想时保留有用的信息。这些方法问题贯穿秘密研究所天天向上的大部分手记。</p>
+        </article>
+        <article class="card">
+          <span class="tag">阅读</span>
+          <h3>文献与概念拆解</h3>
+          <p>把长论文拆成可讨论的小段，把模糊术语还原成具体例子。秘密研究所天天向上的阅读笔记更在意理解过程，而不是复述结论。</p>
+        </article>
+        <article class="card">
+          <span class="tag">协作</span>
+          <h3>团队与讨论文化</h3>
+          <p>一次讨论如何主持，分歧如何记录，结论如何归档。团队的协作方式本身就是研究所的一部分，值得被写下来。</p>
+        </article>
+        <article class="card">
+          <span class="tag">工具</span>
+          <h3>设备与工具的使用</h3>
+          <p>校准、维护、读数与数据整理，工具的使用细节往往决定结果的可信度。秘密研究所天天向上把这些细节单独整理成话题。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问答 -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">常见问答</div>
+        <h2>读者最常问的几件事</h2>
+        <p>以下回答基于秘密研究所天天向上当前公开的内容范围，涉及内部流程的部分只做概括说明。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>秘密研究所天天向上主要发布什么内容？</summary>
+          <p>以研究手记为主，辅以话题整理、阅读笔记和团队讨论记录。内容侧重过程与方法，结论性的表述会标注对应的手记来源，方便读者核对。</p>
+        </details>
+        <details>
+          <summary>内容多久更新一次？</summary>
+          <p>手记按周汇总整理，话题与问答栏目随内容积累不定期补充。页面上的日期对应整理时间，不代表事件发生的确切时刻。</p>
+        </details>
+        <details>
+          <summary>没有专业背景能读懂吗？</summary>
+          <p>可以。秘密研究所天天向上的手记尽量用日常语言解释术语，遇到必要的专业表达会附上简短说明。阅读顺序建议从探索话题进入，再回到具体手记。</p>
+        </details>
+        <details>
+          <summary>可以引用或转载页面内容吗？</summary>
+          <p>欢迎在注明来源的前提下引用公开手记。涉及未公开流程或内部资料的段落不在引用范围内，引用前请先确认对应条目是否标注为公开内容。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 参与路径 -->
+  <section id="pathway">
+    <div class="wrap">
+      <div class="pathway">
+        <h2>从阅读到参与的三步路径</h2>
+        <p>秘密研究所天天向上为不同深度的访问者准备了三条路径：先读、再问、最后动手。每一步都有对应的入口，不需要一次走完。</p>
+        <div class="steps">
+          <div class="step">
+            <b>第一步 · 读</b>
+            <h3>从手记开始</h3>
+            <p>挑一条时间最近的手记读完，了解研究所当前的关注点与记录方式。</p>
+          </div>
+          <div class="step">
+            <b>第二步 · 问</b>
+            <h3>带着问题回看话题</h3>
+            <p>把阅读中产生的疑问带到话题页，对照方法类内容寻找解释或新的线索。</p>
+          </div>
+          <div class="step">
+            <b>第三步 · 做</b>
+            <h3>尝试自己的记录</h3>
+            <p>按手记里的格式记录一次小观察，比对差异，这也是秘密研究所天天向上最看重的参与方式。</p>
+          </div>
+        </div>
+        <div class="pathway-actions">
+          <a class="btn btn-light" href="#notes">开始阅读手记</a>
+          <a class="btn btn-outline-light" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="#top">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="25" r="11" stroke="#5fd6c0" stroke-width="3.5"/>
+              <path d="M32 36v15M24 51h16" stroke="#5fd6c0" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="32" cy="25" r="3.5" fill="#f2c14e"/>
+            </svg>
+          </span>
+          秘密研究所天天向上
+        </a>
+        <p>记录研究所日常、科学探索与知识分享。秘密研究所天天向上把过程写下来，让每一次观察都能被后来的人读到。</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>浏览</h4>
+          <ul>
+            <li><a href="#about">关于研究所</a></li>
+            <li><a href="#notes">研究手记</a></li>
+            <li><a href="#topics">探索话题</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>参与</h4>
+          <ul>
+            <li><a href="#faq">常见问答</a></li>
+            <li><a href="#pathway">参与路径</a></li>
+            <li><a href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2024 秘密研究所天天向上 · 内容以公开手记为准</span>
+      <span>本站为秘密研究所天天向上主题首页</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
